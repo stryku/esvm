@@ -13,4 +13,11 @@ namespace esvm::cc::test
         const auto result_tokens = lexer{source}.lex();
         EXPECT_THAT(result_tokens, IsEmpty());
     }
+
+    TEST(LexerTest, SingleToken_GetOneToken)
+    {
+        const auto source = "foo";
+        const auto result_tokens = lexer{source}.lex();
+        EXPECT_THAT(result_tokens.size(), Eq(1u));
+    }
 }
