@@ -2,6 +2,14 @@
 
 #include <gmock/gmock.h>
 
+namespace esvm::cc
+{
+    std::ostream& operator<<(std::ostream& out, const token& tok)
+    {
+        return out << "[" << static_cast<int>(tok.type) << "]: " << tok.str;
+    }
+}
+
 namespace esvm::cc::test
 {
     using ::testing::Eq;
@@ -40,7 +48,7 @@ namespace esvm::cc::test
                 LexerTestState{":", { token{ token_type::colon, ":" } } },
                 LexerTestState{ "[", { token{ token_type::open_square, "[" } } },
                 LexerTestState{ "]", { token{ token_type::close_square, "]" } } } );
-        INSTANTIATE_TEST_CASE_P(Lexer, Lex_OneCharSource, values);
+        INSTANTIATE_TEST_SUITE_P(Lexer, Lex_OneCharSource, values);
     }
 
     namespace multiple_char_token
@@ -65,12 +73,12 @@ namespace esvm::cc::test
 
                 LexerTestState{ "1", { token{ token_type::number, "1" } } },
                 LexerTestState{ "01234567890", { token{ token_type::number, "0123456789" } } } );
-        INSTANTIATE_TEST_CASE_P(Lexer, Lex_MultipleCharSource, values);
+        INSTANTIATE_TEST_SUITE_P(Lexer, Lex_MultipleCharSource, values);
     }
 
     TEST(Lexer, Lex_MultipleTokensSource_SkipesWhitespaces)
     {
-        const auto source = "  mov, [\tr10\n\n   ] :   231";
+        const auto source = std::string{"  mov, [\tr10\n\n   ] :   231"};
         const auto expected_tokens = std::vector<token>{
                 token{token_type::identifier, "mov" },
                 token{token_type::comma, "," },

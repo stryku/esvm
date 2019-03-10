@@ -119,7 +119,7 @@ namespace esvm::cc
     {
         const auto pred = [this](const char c)
         {
-            return !is_identifier_char(c);
+            return !is_identifier_char(c) && !std::isdigit(c);
         };
         return get_and_eat_token_for_predicate(token_type::identifier, pred);
     }
