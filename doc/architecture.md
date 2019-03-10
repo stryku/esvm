@@ -2,11 +2,13 @@
 
 ## Registers
 
-There are 65 general purpose registers named:
-* r0 .. r63
+There are 16 general purpose and three dedicated registers named:
+* r0 .. r15
 * rret
+* rip
+* rrem
 
-### r0 .. r63
+### r0 .. r15
 General purpose registers. Just use it as you want.
 
 ### rret
