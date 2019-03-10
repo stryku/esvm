@@ -8,7 +8,7 @@ namespace esvm::cc
     {
         undef,
         comma,
-        semicolon,
+        colon,
         open_square,
         close_square,
         identifier,

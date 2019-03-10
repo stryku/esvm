@@ -54,7 +54,7 @@ namespace esvm::cc
                 case ',': return token_type::comma;
                 case '[': return token_type::open_square;
                 case ']': return token_type::close_square;
-                case ':': return token_type::semicolon;
+                case ':': return token_type::colon;
             }
         }();
 
