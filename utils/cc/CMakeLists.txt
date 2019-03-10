@@ -3,11 +3,14 @@ project(esvm_cross_compiler)
 set(CC_LIB_SOURCES
     lexer.cpp
     lexer.hpp
+    token.hpp
+    parser.cpp
+    parser.hpp
 )
 
 set(SOURCES
     main.cpp
-        token.hpp)
+        instruction_opcode.hpp register_opcode.hpp)
 
 add_library(${PROJECT_NAME}_lib STATIC ${CC_LIB_SOURCES})
 target_include_directories(${PROJECT_NAME}_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

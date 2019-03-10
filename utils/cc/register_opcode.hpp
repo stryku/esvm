@@ -2,7 +2,7 @@
 
 namespace esvm::cc
 {
-    enum class register_opcode
+    enum class register_opcode : uint64_t
     {
         rret,
         rip,

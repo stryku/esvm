@@ -1,8 +1,10 @@
 #pragma once
 
+#include <cstdint>
+
 namespace esvm::cc
 {
-    enum class instruction_opcode
+    enum class instruction_opcode : uint64_t
     {
         mov_reg_reg = 0,
         mov_reg_mem,
