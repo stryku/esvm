@@ -72,7 +72,7 @@ namespace esvm::cc::test
                 LexerTestState{ "foo123", { token{ token_type::identifier, "foo123" } } },
 
                 LexerTestState{ "1", { token{ token_type::number, "1" } } },
-                LexerTestState{ "01234567890", { token{ token_type::number, "0123456789" } } } );
+                LexerTestState{ "0123456789", { token{ token_type::number, "0123456789" } } } );
         INSTANTIATE_TEST_SUITE_P(Lexer, Lex_MultipleCharSource, values);
     }
 
